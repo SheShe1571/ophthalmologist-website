@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    direction: rtl;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-tajawal text-gray-800 bg-white antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-cairo font-bold;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary-500 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary-600;
+  }
+}
+
+@layer components {
+  /* Primary Button */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary-600 text-white font-semibold rounded-lg
+           transition-all duration-300 ease-out
+           hover:bg-primary-700 hover:shadow-lg hover:shadow-primary-500/30 hover:-translate-y-0.5
+           active:translate-y-0 active:shadow-md
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+
+  /* Secondary Button */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-primary-600 font-semibold rounded-lg border-2 border-primary-600
+           transition-all duration-300 ease-out
+           hover:bg-primary-50 hover:shadow-lg hover:-translate-y-0.5
+           active:translate-y-0 active:shadow-md
+           focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+  }
+
+  /* WhatsApp Button */
+  .btn-whatsapp {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-green-500 text-white font-semibold rounded-lg
+           transition-all duration-300 ease-out
+           hover:bg-green-600 hover:shadow-lg hover:shadow-green-500/30 hover:-translate-y-0.5
+           active:translate-y-0 active:shadow-md
+           focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2;
+  }
+
+  /* Call Button */
+  .btn-call {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-secondary-500 text-white font-semibold rounded-lg
+           transition-all duration-300 ease-out
+           hover:bg-secondary-600 hover:shadow-lg hover:shadow-secondary-500/30 hover:-translate-y-0.5
+           active:translate-y-0 active:shadow-md
+           focus:outline-none focus:ring-2 focus:ring-secondary-500 focus:ring-offset-2;
+  }
+
+  /* Card styles */
+  .card {
+    @apply bg-white rounded-2xl shadow-lg p-6
+           transition-all duration-300 ease-out
+           hover:shadow-xl hover:-translate-y-1;
+  }
+
+  /* Section container */
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24;
+  }
+
+  /* Section title */
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-cairo font-bold text-gray-900 mb-4 text-center;
+  }
+
+  /* Section subtitle */
+  .section-subtitle {
+    @apply text-lg md:text-xl text-gray-600 max-w-3xl mx-auto text-center mb-12;
+  }
+
+  /* Input field */
+  .input-field {
+    @apply w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg
+           transition-all duration-200
+           focus:bg-white focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 focus:outline-none
+           placeholder:text-gray-400;
+  }
+
+  /* Floating eye background */
+  .floating-eye {
+    @apply absolute pointer-events-none opacity-10 md:opacity-15;
+  }
+}
+
+@layer utilities {
+  /* RTL utilities */
+  .flip-rtl {
+    transform: scaleX(-1);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-l from-primary-600 to-secondary-500 bg-clip-text text-transparent;
+  }
+
+  /* Glass effect */
+  .glass {
+    @apply bg-white/80 backdrop-blur-lg;
+  }
+
+  /* Hide scrollbar */
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Floating animation for eyes */
+@keyframes float-eye {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(10px, -15px) rotate(2deg);
+  }
+  50% {
+    transform: translate(-5px, -25px) rotate(-1deg);
+  }
+  75% {
+    transform: translate(-15px, -10px) rotate(1deg);
+  }
+}
+
+.animate-float-eye {
+  animation: float-eye 12s ease-in-out infinite;
+}
+
+.animate-float-eye-delay {
+  animation: float-eye 15s ease-in-out infinite;
+  animation-delay: -5s;
+}
+
+.animate-float-eye-slow {
+  animation: float-eye 20s ease-in-out infinite;
+  animation-delay: -10s;
+}

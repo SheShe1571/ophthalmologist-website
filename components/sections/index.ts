@@ -1,0 +1,9 @@
+export { Hero } from './Hero';
+export { About } from './About';
+export { Services } from './Services';
+export { Videos } from './Videos';
+export { Reviews } from './Reviews';
+export { FAQ } from './FAQ';
+export { Location } from './Location';
+export { Contact } from './Contact';
+export { ServiceLandingPage } from './ServiceLandingPage';

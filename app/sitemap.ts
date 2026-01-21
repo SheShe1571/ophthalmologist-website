@@ -1,0 +1,39 @@
+import { MetadataRoute } from 'next';
+import { siteConfig } from '@/lib/config';
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = siteConfig.url;
+
+  // Static pages
+  const staticPages = [
+    {
+      url: baseUrl,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 1,
+    },
+    {
+      url: `${baseUrl}/privacy`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/terms`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.3,
+    },
+  ];
+
+  // Service pages
+  const services = ['lasik', 'cataract', 'glaucoma', 'retina', 'pediatric', 'cosmetic'];
+  const servicePages = services.map((slug) => ({
+    url: `${baseUrl}/services/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }));
+
+  return [...staticPages, ...servicePages];
+}
